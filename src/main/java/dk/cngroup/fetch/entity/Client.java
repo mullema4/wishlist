@@ -10,7 +10,6 @@ import java.util.List;
 @NamedEntityGraph(
 		name = "I-want-it-all",
 		attributeNodes = {
-				@NamedAttributeNode("wishes"),
 				@NamedAttributeNode(value = "wishes", subgraph = "wishes-subgraph"),
 		},
 		subgraphs = {

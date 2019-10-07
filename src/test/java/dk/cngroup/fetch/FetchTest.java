@@ -1,6 +1,5 @@
 package dk.cngroup.fetch;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import dk.cngroup.fetch.repository.ClientRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +25,7 @@ public class FetchTest {
 	}
 
 	@Test
-	public void testFetchOrdersAndProducts() throws JsonProcessingException {
+	public void testFetchOrdersAndProducts() {
 		System.out.println(clientRepository.findClientByUsername("Vader"));
 	}
 
