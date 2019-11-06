@@ -11,6 +11,7 @@ public interface ClientRepository extends CrudRepository<Client, Long> {
 	@EntityGraph(attributePaths = {"wishes"})
 	Client findByUsername(String username);
 
-	@EntityGraph(value = "I-want-it-all")
+//	@EntityGraph(value = "I-want-it-all")
+	@EntityGraph(attributePaths = {"wishes.products"})
 	Client findClientByUsername(String username);
 }
