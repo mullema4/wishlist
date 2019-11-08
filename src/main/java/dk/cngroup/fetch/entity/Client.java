@@ -1,5 +1,6 @@
 package dk.cngroup.fetch.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -22,6 +23,7 @@ public class Client {
 	@Description("Concatenated first name and last name of the user")
 	private String username;
 
+	@JsonManagedReference
 	@OneToMany(mappedBy = "client")
 	@OrderColumn
 	private List<Wishlist> wishes;

@@ -1,5 +1,6 @@
 package dk.cngroup.fetch.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,6 +17,7 @@ public class Wishlist {
 	@Id
 	Long id;
 
+	@JsonBackReference
 	@Description("The user holding items in this wishlist")
 	@ManyToOne
 	Client client;
