@@ -1,32 +1,29 @@
 package dk.cngroup.fetch;
 
 import dk.cngroup.fetch.repository.ClientRepository;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class FetchTest {
 
-	@Autowired
-	ClientRepository clientRepository;
+    @Autowired
+    ClientRepository clientRepository;
 
-	@Test
-	public void testDefaultBehavior() {
-		clientRepository.getByUsername("Vader");
-	}
+    @Test
+    public void testDefaultBehavior() {
+        clientRepository.getByUsername("Vader");
+    }
 
-	@Test
-	public void testFetchOrders() {
-		clientRepository.findByUsername("Vader");
-	}
+    @Test
+    public void testFetchOrders() {
+        clientRepository.findByUsername("Vader");
+    }
 
-	@Test
-	public void testFetchOrdersAndProducts() {
-		System.out.println(clientRepository.findClientByUsername("Vader"));
-	}
+    @Test
+    public void testFetchOrdersAndProducts() {
+        System.out.println(clientRepository.findClientByUsername("Vader"));
+    }
 
 }
