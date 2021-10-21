@@ -14,16 +14,16 @@ import java.util.List;
 @Setter
 @ToString(exclude = "client")
 public class Wishlist {
-	@Id
-	Long id;
+    @Id
+    Long id;
 
-	@JsonBackReference
-	@Description("The user holding items in this wishlist")
-	@ManyToOne
-	Client client;
+    @JsonBackReference
+    @Description("The user holding items in this wishlist")
+    @ManyToOne
+    Client client;
 
-	@Description("A list of items added by the client")
-	@ManyToMany
-	@OrderColumn
-	List<Product> products;
+    @Description("A list of items added by the client")
+    @ManyToMany
+    @OrderColumn
+    List<Product> products;
 }
