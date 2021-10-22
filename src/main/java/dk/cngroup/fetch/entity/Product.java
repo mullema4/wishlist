@@ -14,12 +14,12 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @ToString
-public class Product {
-	@Id
-	Long id;
+public class Product extends AuditableEntity {
+    @Id
+    Long id;
 
-	@NotNull
-	@Length(min = 3, max = 30)
-	@Description("Serial number of the item")
-	String code;
+    @NotNull
+    @Length(min = 3, max = 30)
+    @Description("Serial number of the item")
+    String code;
 }
