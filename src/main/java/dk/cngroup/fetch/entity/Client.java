@@ -2,15 +2,13 @@ package dk.cngroup.fetch.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.Where;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderColumn;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,9 +16,10 @@ import java.util.List;
 @Where(clause = "active = true")
 @Getter
 @Setter
-@ToString(callSuper = true)
+@NoArgsConstructor
 public class Client {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String firstName;
@@ -33,7 +32,18 @@ public class Client {
     private String userName;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     @OrderColumn
-    private List<Wishlist> wishes;
+    private List<Wishlist> wishes = new ArrayList<>();
+
+    public Client(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.active = true;
+    }
+
+    public void addWishlist(Wishlist wishlist) {
+        wishes.add(wishlist);
+        wishlist.setClient(this);
+    }
 }
