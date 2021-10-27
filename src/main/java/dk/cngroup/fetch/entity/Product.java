@@ -1,24 +1,24 @@
 package dk.cngroup.fetch.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.rest.core.annotation.Description;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrePersist;
 import javax.validation.constraints.NotNull;
-
-import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @Entity
 @Getter
 @Setter
-@ToString(callSuper = true)
+@NoArgsConstructor
 public class Product extends AuditableEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @NotNull
@@ -26,8 +26,7 @@ public class Product extends AuditableEntity {
     @Description("Unique name of the item")
     String code;
 
-    @PrePersist
-    void preInsert() {
-        if (isBlank(code)) code = "DummyCode";
+    public Product(String code) {
+        this.code = code;
     }
 }
