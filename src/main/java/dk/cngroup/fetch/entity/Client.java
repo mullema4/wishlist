@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.data.rest.core.annotation.Description;
+import org.hibernate.annotations.Formula;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,18 +14,26 @@ import javax.persistence.OrderColumn;
 import java.util.List;
 
 @Entity
+//all SELECT statements will be enhanced by given where condition; cannot be inherited from parent class
+@Where(clause = "active = true")
 @Getter
 @Setter
-@ToString
+@ToString(callSuper = true)
 public class Client {
-	@Id
-	private Long id;
+    @Id
+    private Long id;
 
-	@Description("Concatenated first name and last name of the user")
-	private String username;
+    private String firstName;
 
-	@JsonManagedReference
-	@OneToMany(mappedBy = "client")
-	@OrderColumn
-	private List<Wishlist> wishes;
+    private String lastName;
+
+    private Boolean active;
+
+    @Formula("upper(concat(first_name, '_', last_name))")
+    private String userName;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "client")
+    @OrderColumn
+    private List<Wishlist> wishes;
 }

@@ -11,19 +11,20 @@ public class FetchTest {
     @Autowired
     ClientRepository clientRepository;
 
+    //check log to see the difference in SQL executed by Hibernate
     @Test
     public void testDefaultBehavior() {
-        clientRepository.getByUsername("Vader");
+        clientRepository.getByUserName("DARTH_VADER");
     }
 
     @Test
     public void testFetchOrders() {
-        clientRepository.findByUsername("Vader");
+        clientRepository.findByUserName("DARTH_VADER");
     }
 
     @Test
     public void testFetchOrdersAndProducts() {
-        System.out.println(clientRepository.findClientByUsername("Vader"));
+        clientRepository.findClientByUserName("DARTH_VADER");
     }
 
 }
