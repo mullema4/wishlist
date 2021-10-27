@@ -7,13 +7,13 @@ import org.springframework.data.rest.core.annotation.RestResource;
 
 public interface ClientRepository extends CrudRepository<Client, Long> {
 
-	@RestResource(exported = false)
-	Client getByUsername(String username);
+    @RestResource(exported = false)
+    Client getByUserName(String userName);
 
-	@RestResource(exported = false)
-	@EntityGraph(attributePaths = {"wishes"})
-	Client findByUsername(String username);
+    @RestResource(exported = false)
+    @EntityGraph(attributePaths = {"wishes"})
+    Client findByUserName(String userName);
 
-	@EntityGraph(attributePaths = {"wishes.products"})
-	Client findClientByUsername(String username);
+    @EntityGraph(attributePaths = {"wishes.products"})
+    Client findClientByUserName(String userName);
 }

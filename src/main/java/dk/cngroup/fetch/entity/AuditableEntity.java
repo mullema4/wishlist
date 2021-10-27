@@ -1,7 +1,6 @@
 package dk.cngroup.fetch.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -11,8 +10,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public class AuditableEntity {
@@ -21,7 +19,8 @@ public class AuditableEntity {
     private LocalDateTime created;
     @LastModifiedDate
     private LocalDateTime updated;
-    @CreatedBy
-    private LocalDateTime createdBy;
 
+    //needs AuditorAware support - check {@link SecurityConfig.getCurrentAuditor}
+    @CreatedBy
+    private String createdBy;
 }
