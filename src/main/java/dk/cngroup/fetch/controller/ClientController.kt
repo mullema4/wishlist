@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.PathVariable
 class ClientController(private val repository: ClientRepository) {
 
     //custom method returning loaded entity in Spring HATEOAS way
-    @GetMapping("/clients/client-management/{name}")
+    @GetMapping("/clients/client-management/{username}")
     fun getByName(
-        @PathVariable name: String?,
+        @PathVariable username: String?,
         resourceAssembler: PersistentEntityResourceAssembler
     ): ResponseEntity<PersistentEntityResource> {
-        val client = repository.findClientByUserName(name)
+        val client = repository.findClientByUserName(username)
         return ResponseEntity.ok(resourceAssembler.toFullResource(client))
     }
 }
