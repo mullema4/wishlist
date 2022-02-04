@@ -1,6 +1,6 @@
 package dk.cngroup.fetch;
 
-import dk.cngroup.fetch.repository.ClientRepository;
+import dk.cngroup.fetch.entity.ClientRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
