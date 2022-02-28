@@ -19,7 +19,7 @@ class Wishlist(
     @OrderColumn
     @ManyToMany(cascade = [CascadeType.PERSIST])
     @Description("A list of items added by the client")
-    var products: List<Product> = emptyList()
+    var products: MutableList<Product> = arrayListOf()
 )
 
 interface WishlistRepository : JpaRepository<Wishlist?, Long?>
