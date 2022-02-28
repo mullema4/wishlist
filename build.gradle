@@ -37,6 +37,12 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.10'
 }
 
+allOpen {
+    annotation("javax.persistence.Entity")
+    annotation("javax.persistence.Embeddable")
+    annotation("javax.persistence.MappedSuperclass")
+}
+
 test {
     useJUnitPlatform()
 }

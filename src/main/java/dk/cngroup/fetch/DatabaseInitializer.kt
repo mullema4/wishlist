@@ -15,7 +15,7 @@ class DatabaseInitializer(private val clientRepository: ClientRepository) : Comm
         val tieFighter = Product(code = "TIE Fighter")
         val deathStar = Product(code = "Death Star")
         val starDestroyer = Product(code = "Star Destroyer")
-        val wishlist = Wishlist(products = listOf(tieFighter, deathStar, starDestroyer))
+        val wishlist = Wishlist(products = arrayListOf(tieFighter, deathStar, starDestroyer))
         val vader = Client(firstName = "Darth", lastName = "Vader")
         vader.addWishlist(wishlist)
         clientRepository.save(vader)
