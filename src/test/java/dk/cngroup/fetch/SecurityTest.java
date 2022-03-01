@@ -18,6 +18,6 @@ public class SecurityTest {
 
     @Test
     public void noAuthenticationTest() throws Exception {
-        mockMvc.perform(get("/client-management/Vader")).andExpect(status().isOk());
+        mockMvc.perform(get("/clients/client-management/DARTH_VADER")).andExpect(status().isOk());
     }
 }
