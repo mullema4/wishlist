@@ -25,6 +25,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter(), AuditorAware<String> {
 
     override fun configure(http: HttpSecurity) {
         http.authorizeRequests()
+            .antMatchers("/actuator/health/*").permitAll()
             .anyRequest().authenticated()
             .and().httpBasic()
             .and().csrf().disable()

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wishlist-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wishlist
+  template:
+    metadata:
+      labels:
+        app: wishlist
+    spec:
+      containers:
+        - image: mamut89/k8s:wishlist-java
+          securityContext:
+            allowPrivilegeEscalation:
+              false
+            runAsNonRoot:
+              true
+          name: wishlist
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            initialDelaySeconds: 15
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 15
+          resources:
+            requests:
+              cpu: 100m
+              memory: 1024Mi # Guaranteed memory allocation at the pod creation time
+            limits:
+              cpu: 750m
+              memory: 1024Mi # Not an allocation! Just an obligation to stay under this limit (otherwise your app will be killed)
