@@ -30,6 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Audi
 
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/actuator/health/*").permitAll()
                 .anyRequest().authenticated()
                 .and().httpBasic()
                 .and().csrf().disable();
