@@ -9,7 +9,6 @@ spec:
       app: wishlist
   template:
     metadata:
-      name: wishlist-pod
       labels:
         app: wishlist
     spec:
@@ -22,9 +21,9 @@ spec:
             httpGet:
               path: /actuator/health/readiness
               port: 8080
-            initialDelaySeconds: 30
+            initialDelaySeconds: 15
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
               port: 8080
-            initialDelaySeconds: 30
+            initialDelaySeconds: 15
