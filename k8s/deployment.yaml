@@ -13,7 +13,12 @@ spec:
         app: wishlist
     spec:
       containers:
-        - image: mulleracr.azurecr.io/wishlist:latest
+        - image: mamut89/k8s:wishlist-java
+          securityContext:
+            allowPrivilegeEscalation:
+              false
+            runAsNonRoot:
+              true
           name: wishlist
           ports:
             - containerPort: 8080
