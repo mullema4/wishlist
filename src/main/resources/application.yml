@@ -1,0 +1,28 @@
+spring:
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: 'true'
+#    hibernate:
+#      ddl-auto: update
+#  datasource:
+#    password: test
+#    username: test
+#    url: jdbc:mysql://localhost:3306/test
+#to use MySQL uncomment mysql-connector-java dependency
+
+management:
+  endpoints.web.exposure.include: '*'
+  info:
+    java.enabled: true
+    os.enabled: true
+  endpoint.health:
+    probes.enabled: true
+    show-details: always
+
+springdoc:
+  swagger-ui.path: /openapi/swagger
+  api-docs.path: /openapi/api-docs
