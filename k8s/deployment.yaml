@@ -32,3 +32,10 @@ spec:
               path: /actuator/health/liveness
               port: 8080
             initialDelaySeconds: 15
+          resources:
+            requests:
+              cpu: 100m
+              memory: 1024Mi # Guaranteed memory allocation at the pod creation time
+            limits:
+              cpu: 750m
+              memory: 1024Mi # Not an allocation! Just an obligation to stay under this limit (otherwise your app will be killed)

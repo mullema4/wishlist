@@ -19,4 +19,4 @@ USER 1000
 EXPOSE 8080
 
 # Run the jar file
-ENTRYPOINT ["java", "-jar", "/wishlist.jar"]
+ENTRYPOINT ["java", "-Xms512m", "-Xmx512m", "-jar", "/wishlist.jar"]
