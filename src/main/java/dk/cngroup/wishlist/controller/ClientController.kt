@@ -15,7 +15,7 @@ class ClientController(private val repository: ClientRepository) {
     //custom method returning loaded entity in Spring HATEOAS way
     @GetMapping("/clients/client-management/{username}")
     fun getByName(
-        @PathVariable username: String?,
+        @PathVariable username: String,
         resourceAssembler: PersistentEntityResourceAssembler
     ): ResponseEntity<PersistentEntityResource> {
         val client = repository.findClientByUserName(username)
