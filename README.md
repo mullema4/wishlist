@@ -11,7 +11,7 @@
 * **Spring Data REST** - automatic exposure of Spring Data repositories via REST API ([spring-boot-starter-data-rest](build.gradle.kts) dependency)
 * **@RepositoryRestController** - enhances Spring Data REST API by custom behavior ([ClientController](src/main/java/dk/cngroup/wishlist/controller/ClientController.kt))
 
-Project uses **H2 database** (can be [switched to dedicated MySQL](src/main/resources/application.properties)) initialized with [sample data](src/main/java/dk/cngroup/wishlist/DatabaseInitializer.kt).
+Project uses **H2 database** (can be [switched to dedicated MySQL](src/main/resources/application.yml)) initialized with [sample data](src/main/java/dk/cngroup/wishlist/DatabaseInitializer.kt).
 
 Useful runtime URLs:
 * **[Swagger UI](http://localhost:8080/openapi/swagger)**
