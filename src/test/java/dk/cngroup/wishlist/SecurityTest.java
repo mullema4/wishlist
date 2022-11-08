@@ -1,4 +1,4 @@
-package dk.cngroup.fetch;
+package dk.cngroup.wishlist;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
