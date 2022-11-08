@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
     id("org.springframework.boot") version "2.7.5"
@@ -49,6 +50,14 @@ allOpen {
     annotation("javax.persistence.Entity")
     annotation("javax.persistence.Embeddable")
     annotation("javax.persistence.MappedSuperclass")
+}
+
+springBoot {
+    buildInfo()
+}
+
+tasks.named<BootJar>("bootJar") {
+    archiveFileName.set("wishlist.jar")
 }
 
 tasks.withType<KotlinCompile> {
