@@ -1,7 +1,7 @@
-package dk.cngroup.fetch.controller
+package dk.cngroup.wishlist.controller
 
-import dk.cngroup.fetch.entity.Product
-import dk.cngroup.fetch.entity.ProductRepository
+import dk.cngroup.wishlist.entity.Product
+import dk.cngroup.wishlist.entity.ProductRepository
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController

@@ -1,4 +1,4 @@
-package dk.cngroup.fetch.entity
+package dk.cngroup.wishlist.entity
 
 import com.fasterxml.jackson.annotation.JsonManagedReference
 import org.hibernate.annotations.Formula

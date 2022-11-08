@@ -1,6 +1,6 @@
-package dk.cngroup.fetch.controller
+package dk.cngroup.wishlist.controller
 
-import dk.cngroup.fetch.entity.ClientRepository
+import dk.cngroup.wishlist.entity.ClientRepository
 import org.springframework.data.rest.webmvc.PersistentEntityResource
 import org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler
 import org.springframework.data.rest.webmvc.RepositoryRestController

@@ -1,4 +1,4 @@
-package dk.cngroup.fetch.entity
+package dk.cngroup.wishlist.entity
 
 import org.apache.commons.lang3.StringUtils.isBlank
 import org.springframework.data.annotation.CreatedBy

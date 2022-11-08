@@ -1,9 +1,9 @@
-package dk.cngroup.fetch
+package dk.cngroup.wishlist
 
-import dk.cngroup.fetch.entity.Client
-import dk.cngroup.fetch.entity.ClientRepository
-import dk.cngroup.fetch.entity.Product
-import dk.cngroup.fetch.entity.Wishlist
+import dk.cngroup.wishlist.entity.Client
+import dk.cngroup.wishlist.entity.ClientRepository
+import dk.cngroup.wishlist.entity.Product
+import dk.cngroup.wishlist.entity.Wishlist
 import lombok.RequiredArgsConstructor
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
