@@ -31,14 +31,14 @@ class Client(
     }
 }
 
-interface ClientRepository : CrudRepository<Client?, Long?> {
+interface ClientRepository : CrudRepository<Client, Long> {
     @RestResource(exported = false)
-    fun getByUserName(userName: String?): Client?
+    fun getByUserName(userName: String): Client?
 
     @RestResource(exported = false)
     @EntityGraph(attributePaths = ["wishes"])
-    fun findByUserName(userName: String?): Client?
+    fun findByUserName(userName: String): Client?
 
     @EntityGraph(attributePaths = ["wishes.products"])
-    fun findClientByUserName(userName: String?): Client?
+    fun findClientByUserName(userName: String): Client
 }
