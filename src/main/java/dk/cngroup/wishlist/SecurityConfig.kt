@@ -1,20 +1,20 @@
 package dk.cngroup.wishlist
 
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import org.springframework.data.domain.AuditorAware
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.User
-import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.provisioning.InMemoryUserDetailsManager
+import org.springframework.security.web.SecurityFilterChain
 import java.util.*
 
-@EnableWebSecurity
-class SecurityConfig : WebSecurityConfigurerAdapter(), AuditorAware<String> {
+@Configuration
+class SecurityConfig : AuditorAware<String> {
+
     @Bean
-    public override fun userDetailsService(): UserDetailsService {
+    fun userDetailsService(): InMemoryUserDetailsManager {
         val user = User.withDefaultPasswordEncoder()
             .username("user")
             .password("password")
@@ -23,12 +23,14 @@ class SecurityConfig : WebSecurityConfigurerAdapter(), AuditorAware<String> {
         return InMemoryUserDetailsManager(user)
     }
 
-    override fun configure(http: HttpSecurity) {
+    @Bean
+    fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http.authorizeRequests()
             .antMatchers("/actuator/health/*").permitAll()
             .anyRequest().authenticated()
             .and().httpBasic()
             .and().csrf().disable()
+        return http.build()
     }
 
     override fun getCurrentAuditor(): Optional<String> {
