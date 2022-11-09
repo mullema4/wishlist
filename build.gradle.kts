@@ -32,16 +32,12 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-data-rest:1.6.12")
     implementation("org.springdoc:springdoc-openapi-security:1.6.12")
     implementation("com.google.code.gson:gson")
-    compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 //    runtimeOnly("mysql:mysql-connector-java")
     runtimeOnly("com.h2database:h2")
-    annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.springframework.security:spring-security-test")
 
     // dependencies for using Spock
-    implementation("org.codehaus.groovy:groovy")
     testImplementation("org.spockframework:spock-spring:2.3-groovy-3.0")
     testImplementation("org.hamcrest:hamcrest-core:2.2")   // only necessary if Hamcrest matchers are used
     testRuntimeOnly("net.bytebuddy:byte-buddy:1.12.18") // allows mocking of classes (in addition to interfaces)
