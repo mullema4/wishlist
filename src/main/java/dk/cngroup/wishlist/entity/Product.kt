@@ -16,7 +16,7 @@ class Product(
 
     @Description("Unique name of the item")
     @field:NotNull
-    val code: String
+    var code: String
 ) : AuditableEntity()
 
 interface ProductRepository : JpaRepository<Product?, Long?>

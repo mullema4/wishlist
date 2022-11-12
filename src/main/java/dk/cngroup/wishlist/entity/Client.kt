@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference
 import org.hibernate.annotations.Formula
 import org.hibernate.annotations.Where
 import org.springframework.data.jpa.repository.EntityGraph
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.rest.core.annotation.RestResource
 import javax.persistence.*
 
@@ -15,12 +15,12 @@ class Client(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
     var active: Boolean = true,
-    val firstName: String,
-    val lastName: String,
+    var firstName: String,
+    var lastName: String,
     @JsonManagedReference
     @OneToMany(mappedBy = "client", cascade = [CascadeType.ALL])
     @OrderColumn
-    val wishes: MutableList<Wishlist> = mutableListOf()
+    var wishes: MutableList<Wishlist> = mutableListOf()
 ) {
     @Formula("upper(concat(first_name, '_', last_name))")
     val userName: String? = null
@@ -31,7 +31,7 @@ class Client(
     }
 }
 
-interface ClientRepository : CrudRepository<Client, Long> {
+interface ClientRepository : JpaRepository<Client, Long> {
     @RestResource(exported = false)
     fun getByUserName(userName: String): Client?
 
