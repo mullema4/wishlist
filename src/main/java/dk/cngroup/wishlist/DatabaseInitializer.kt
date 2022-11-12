@@ -4,12 +4,10 @@ import dk.cngroup.wishlist.entity.Client
 import dk.cngroup.wishlist.entity.ClientRepository
 import dk.cngroup.wishlist.entity.Product
 import dk.cngroup.wishlist.entity.Wishlist
-import lombok.RequiredArgsConstructor
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
 
 @Component
-@RequiredArgsConstructor
 class DatabaseInitializer(private val clientRepository: ClientRepository) : CommandLineRunner {
     override fun run(vararg args: String) {
         val tieFighter = Product(code = "TIE Fighter")

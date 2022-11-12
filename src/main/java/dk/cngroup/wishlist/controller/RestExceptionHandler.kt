@@ -1,6 +1,5 @@
 package dk.cngroup.wishlist.controller
 
-import lombok.extern.slf4j.Slf4j
 import mu.KotlinLogging
 import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.http.HttpStatus.*
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestControllerAdvice
 
 @RestControllerAdvice
-@Slf4j
 class RestExceptionHandler {
 
     @ExceptionHandler(EmptyResultDataAccessException::class)
