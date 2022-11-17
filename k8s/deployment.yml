@@ -13,7 +13,8 @@ spec:
         app: wishlist
     spec:
       containers:
-        - image: mamut89/k8s:wishlist-java
+        - image: mamut89/wishlist:kotlin
+          imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation:
               false
