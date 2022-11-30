@@ -1,6 +1,6 @@
 # Darth Vader's wishlist
 
-<p>Demo app illustrating usage of various Spring, JPA and Hibernate features:</p>
+Kotlin/[Spock](https://spockframework.org/spock/docs/) demo app illustrating usage of various Spring, JPA and Hibernate features:
 
 * **@EntityGraph** - EAGER loading of selected attributes ([ClientRepository](src/main/java/dk/cngroup/wishlist/entity/Client.kt))
 * **JPA auditing** - automatic insertion of useful entity stuff ([AuditableEntity](src/main/java/dk/cngroup/wishlist/entity/AuditableEntity.kt))
