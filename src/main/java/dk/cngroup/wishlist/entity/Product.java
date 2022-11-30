@@ -1,4 +1,4 @@
-package dk.cngroup.fetch.entity;
+package dk.cngroup.wishlist.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

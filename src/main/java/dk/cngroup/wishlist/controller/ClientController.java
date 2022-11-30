@@ -1,7 +1,7 @@
-package dk.cngroup.fetch.controller;
+package dk.cngroup.wishlist.controller;
 
-import dk.cngroup.fetch.entity.Client;
-import dk.cngroup.fetch.repository.ClientRepository;
+import dk.cngroup.wishlist.entity.Client;
+import dk.cngroup.wishlist.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.rest.webmvc.PersistentEntityResource;
 import org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler;

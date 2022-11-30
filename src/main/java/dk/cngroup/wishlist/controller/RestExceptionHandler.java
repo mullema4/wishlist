@@ -1,4 +1,4 @@
-package dk.cngroup.fetch.controller;
+package dk.cngroup.wishlist.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;

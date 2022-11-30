@@ -1,6 +1,6 @@
-package dk.cngroup.fetch.repository;
+package dk.cngroup.wishlist.repository;
 
-import dk.cngroup.fetch.entity.Client;
+import dk.cngroup.wishlist.entity.Client;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RestResource;

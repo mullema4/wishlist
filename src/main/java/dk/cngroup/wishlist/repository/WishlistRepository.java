@@ -1,6 +1,6 @@
-package dk.cngroup.fetch.repository;
+package dk.cngroup.wishlist.repository;
 
-import dk.cngroup.fetch.entity.Wishlist;
+import dk.cngroup.wishlist.entity.Wishlist;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface WishlistRepository extends JpaRepository<Wishlist, Long> {
