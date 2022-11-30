@@ -1,6 +1,6 @@
 # Darth Vader's wishlist
 
-<p>Demo app illustrating usage of various Spring, JPA and Hibernate features:</p>
+<p>Java demo app illustrating usage of various Spring, JPA and Hibernate features:</p>
 
 * **@EntityGraph** - EAGER loading of selected attributes ([ClientRepository](src/main/java/dk/cngroup/wishlist/repository/ClientRepository.java))
 * **JPA auditing** - automatic insertion of useful entity stuff ([AuditableEntity](src/main/java/dk/cngroup/wishlist/entity/AuditableEntity.java))
