@@ -2,11 +2,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
-    id("org.springframework.boot") version "2.7.5"
+    id("org.springframework.boot") version "2.7.8"
     id("io.spring.dependency-management") version "1.0.15.RELEASE"
-    kotlin("jvm") version "1.7.20"
-    kotlin("plugin.jpa") version "1.7.20"
-    kotlin("plugin.spring") version "1.7.20"
+    kotlin("jvm") version "1.8.0"
+    kotlin("plugin.jpa") version "1.8.0"
+    kotlin("plugin.spring") version "1.8.0"
     groovy
 }
 
@@ -19,8 +19,8 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.20")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.0")
     implementation("io.github.microutils:kotlin-logging:3.0.4")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-data-rest")
@@ -28,9 +28,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("org.springdoc:springdoc-openapi-ui:1.6.12")
-    implementation("org.springdoc:springdoc-openapi-data-rest:1.6.12")
-    implementation("org.springdoc:springdoc-openapi-security:1.6.12")
+    implementation("org.springdoc:springdoc-openapi-ui:1.6.14")
+    implementation("org.springdoc:springdoc-openapi-data-rest:1.6.14")
+    implementation("org.springdoc:springdoc-openapi-security:1.6.14")
     implementation("com.google.code.gson:gson")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 //    runtimeOnly("mysql:mysql-connector-java")
@@ -40,7 +40,7 @@ dependencies {
     // dependencies for using Spock
     testImplementation("org.spockframework:spock-spring:2.3-groovy-3.0")
     testImplementation("org.hamcrest:hamcrest-core:2.2")   // only necessary if Hamcrest matchers are used
-    testRuntimeOnly("net.bytebuddy:byte-buddy:1.12.18") // allows mocking of classes (in addition to interfaces)
+    testRuntimeOnly("net.bytebuddy:byte-buddy:1.12.22") // allows mocking of classes (in addition to interfaces)
 }
 
 allOpen {
