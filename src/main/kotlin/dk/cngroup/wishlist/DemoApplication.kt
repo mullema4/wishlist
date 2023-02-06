@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer
 import org.springframework.web.servlet.config.annotation.CorsRegistry
-import javax.persistence.EntityManager
+import jakarta.persistence.EntityManager
 
 //TODO migrate fixes to Java branch
 @SpringBootApplication

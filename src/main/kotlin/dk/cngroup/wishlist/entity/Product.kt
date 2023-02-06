@@ -2,8 +2,8 @@ package dk.cngroup.wishlist.entity
 
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.rest.core.annotation.Description
-import javax.persistence.Entity
-import javax.validation.constraints.NotNull
+import jakarta.persistence.Entity
+import jakarta.validation.constraints.NotNull
 
 @Entity
 class Product(

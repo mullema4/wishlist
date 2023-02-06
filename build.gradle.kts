@@ -1,36 +1,35 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
-    id("org.springframework.boot") version "2.7.8"
-    id("io.spring.dependency-management") version "1.0.15.RELEASE"
-    kotlin("jvm") version "1.8.0"
-    kotlin("plugin.jpa") version "1.8.0"
-    kotlin("plugin.spring") version "1.8.0"
+    val kotlinPluginVersion = "1.8.10"
+
+    id("org.springframework.boot") version "3.0.5"
+    id("io.spring.dependency-management") version "1.1.0"
+    kotlin("jvm") version kotlinPluginVersion
+    kotlin("plugin.jpa") version kotlinPluginVersion
+    kotlin("plugin.spring") version kotlinPluginVersion
     groovy
 }
 
 group = "dk.cngroup.wishlist"
 version = "1.0.0'"
-java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.0")
-    implementation("io.github.microutils:kotlin-logging:3.0.4")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.10")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.10")
+    implementation("io.github.microutils:kotlin-logging:3.0.5")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-data-rest")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("org.springdoc:springdoc-openapi-ui:1.6.14")
-    implementation("org.springdoc:springdoc-openapi-data-rest:1.6.14")
-    implementation("org.springdoc:springdoc-openapi-security:1.6.14")
+    implementation("org.springdoc:springdoc-openapi:2.1.0")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0")
     implementation("com.google.code.gson:gson")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 //    runtimeOnly("mysql:mysql-connector-java")
@@ -38,15 +37,19 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
     // dependencies for using Spock
-    testImplementation("org.spockframework:spock-spring:2.3-groovy-3.0")
+    testImplementation("org.spockframework:spock-spring:2.4-M1-groovy-4.0")
     testImplementation("org.hamcrest:hamcrest-core:2.2")   // only necessary if Hamcrest matchers are used
-    testRuntimeOnly("net.bytebuddy:byte-buddy:1.12.22") // allows mocking of classes (in addition to interfaces)
+    testRuntimeOnly("net.bytebuddy:byte-buddy:1.12.23") // allows mocking of classes (in addition to interfaces)
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 allOpen {
-    annotation("javax.persistence.Entity")
-    annotation("javax.persistence.Embeddable")
-    annotation("javax.persistence.MappedSuperclass")
+    annotation("jakarta.persistence.Entity")
+    annotation("jakarta.persistence.Embeddable")
+    annotation("jakarta.persistence.MappedSuperclass")
 }
 
 springBoot {
@@ -55,13 +58,6 @@ springBoot {
 
 tasks.named<BootJar>("bootJar") {
     archiveFileName.set("wishlist.jar")
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "11"
-    }
 }
 
 tasks.withType<Test> {

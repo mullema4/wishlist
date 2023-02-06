@@ -6,7 +6,7 @@ import org.hibernate.annotations.Where
 import org.springframework.data.jpa.repository.EntityGraph
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.rest.core.annotation.RestResource
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 @Where(clause = "active = true")  // all SELECT statements will be enhanced by where condition; cannot be inherited

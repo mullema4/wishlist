@@ -1,6 +1,5 @@
-# Small & secure JRE 11 base image
-FROM adoptopenjdk/openjdk11:alpine-jre
-#you can also use eclipse-temurin:17-jre-alpine
+# Small & secure JRE 17 base image
+FROM eclipse-temurin:17-jre-alpine
 
 # Install security updates
 RUN apk -U upgrade
