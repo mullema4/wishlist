@@ -9,6 +9,7 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer
 import org.springframework.web.servlet.config.annotation.CorsRegistry
 import javax.persistence.EntityManager
 
+//TODO migrate fixes to Java branch
 @SpringBootApplication
 @EnableJpaAuditing
 class DemoApplication
