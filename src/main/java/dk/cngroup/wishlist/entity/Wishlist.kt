@@ -7,10 +7,6 @@ import javax.persistence.*
 
 @Entity
 class Wishlist(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null,
-
     @JsonBackReference
     @Description("The user holding items in this wishlist")
     @ManyToOne
@@ -20,6 +16,6 @@ class Wishlist(
     @ManyToMany(cascade = [CascadeType.PERSIST])
     @Description("A list of items added by the client")
     var products: MutableList<Product> = arrayListOf()
-)
+): AuditableEntity()
 
 interface WishlistRepository : JpaRepository<Wishlist?, Long?>

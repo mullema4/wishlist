@@ -8,12 +8,9 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.rest.core.annotation.RestResource
 import javax.persistence.*
 
-@Entity //all SELECT statements will be enhanced by given where condition; cannot be inherited from parent class
-@Where(clause = "active = true")
+@Entity
+@Where(clause = "active = true")  // all SELECT statements will be enhanced by where condition; cannot be inherited
 class Client(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null,
     var active: Boolean = true,
     var firstName: String,
     var lastName: String,
@@ -21,7 +18,7 @@ class Client(
     @OneToMany(mappedBy = "client", cascade = [CascadeType.ALL])
     @OrderColumn
     var wishes: MutableList<Wishlist> = mutableListOf()
-) {
+) : AuditableEntity() {
     @Formula("upper(concat(first_name, '_', last_name))")
     val userName: String? = null
 
