@@ -3,7 +3,7 @@ package dk.cngroup.wishlist.entity
 import com.fasterxml.jackson.annotation.JsonBackReference
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.rest.core.annotation.Description
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 class Wishlist(

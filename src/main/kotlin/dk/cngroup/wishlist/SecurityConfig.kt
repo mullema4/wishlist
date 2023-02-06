@@ -24,13 +24,14 @@ class SecurityConfig : AuditorAware<String> {
     }
 
     @Bean
-    fun filterChain(http: HttpSecurity): SecurityFilterChain {
-        http.authorizeRequests()
-            .antMatchers("/actuator/health/*").permitAll()
+    fun filterChain(httpSecurity: HttpSecurity): SecurityFilterChain {
+        httpSecurity
+            .csrf().disable()
+            .httpBasic {}
+            .authorizeHttpRequests()
+            .requestMatchers("/actuator/health/*").permitAll()
             .anyRequest().authenticated()
-            .and().httpBasic()
-            .and().csrf().disable()
-        return http.build()
+        return httpSecurity.build()
     }
 
     override fun getCurrentAuditor(): Optional<String> {
