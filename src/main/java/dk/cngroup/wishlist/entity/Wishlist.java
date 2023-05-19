@@ -13,11 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Wishlist {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-
+public class Wishlist extends AuditableEntity {
     @JsonBackReference
     @Description("The user holding items in this wishlist")
     @ManyToOne

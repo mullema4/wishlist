@@ -12,29 +12,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-//all SELECT statements will be enhanced by given where condition; cannot be inherited from parent class
-@Where(clause = "active = true")
+@Where(clause = "active = true") // all SELECT statements will be enhanced by given where condition; cannot be inherited from parent class
+
 @Getter
 @Setter
 @NoArgsConstructor
-public class Client {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class Client extends AuditableEntity {
     private String firstName;
 
     private String lastName;
 
     private Boolean active;
 
-    @Formula("upper(concat(first_name, '_', last_name))")
-    private String userName;
-
     @JsonManagedReference
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     @OrderColumn
     private List<Wishlist> wishes = new ArrayList<>();
+
+    @Formula("upper(concat(first_name, '_', last_name))")
+    private String userName;
 
     public Client(String firstName, String lastName) {
         this.firstName = firstName;

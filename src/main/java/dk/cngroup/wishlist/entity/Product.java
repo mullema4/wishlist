@@ -17,13 +17,9 @@ import javax.validation.constraints.NotNull;
 @Setter
 @NoArgsConstructor
 public class Product extends AuditableEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-
+    @Description("Unique name of the item")
     @NotNull
     @Length(min = 3, max = 30)
-    @Description("Unique name of the item")
     String code;
 
     public Product(String code) {
