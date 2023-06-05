@@ -1,12 +1,12 @@
 package dk.cngroup.wishlist.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.rest.core.annotation.Description;
 
-import javax.persistence.*;
 import java.util.List;
 
 @Entity

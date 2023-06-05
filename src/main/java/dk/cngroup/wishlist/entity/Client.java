@@ -7,7 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.Where;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

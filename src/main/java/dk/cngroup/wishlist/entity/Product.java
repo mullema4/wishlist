@@ -1,16 +1,12 @@
 package dk.cngroup.wishlist.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.rest.core.annotation.Description;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Getter
