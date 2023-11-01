@@ -31,8 +31,9 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi:2.1.0")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0")
     implementation("com.google.code.gson:gson")
+    implementation("com.maciejwalkowiak.spring:spring-boot-startup-report:0.2.0")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-//    runtimeOnly("mysql:mysql-connector-java")
+//    runtimeOnly("com.mysql:mysql-connector-j")
     runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
