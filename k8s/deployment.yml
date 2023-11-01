@@ -23,16 +23,17 @@ spec:
           name: wishlist
           ports:
             - containerPort: 8080
+            - containerPort: 5005
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
               port: 8080
-            initialDelaySeconds: 15
+            initialDelaySeconds: 30
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
               port: 8080
-            initialDelaySeconds: 15
+            initialDelaySeconds: 30
           resources:
             requests:
               cpu: 100m
