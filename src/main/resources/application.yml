@@ -21,10 +21,6 @@ springdoc:
 logging.level:
   org.hibernate.type.descriptor.sql: trace
 
-#to use MySQL uncomment mysql-connector-java dependency
-#spring:
-#  datasource:
-#    url: jdbc:mysql://localhost:3306/test
-#    username: test
-#    password: test
-#  jpa.hibernate.ddl-auto: update
+spring:
+  datasource.driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa.hibernate.ddl-auto: update

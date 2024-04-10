@@ -33,8 +33,8 @@ dependencies {
     implementation("com.google.code.gson:gson")
     implementation("com.maciejwalkowiak.spring:spring-boot-startup-report:0.2.0")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-//    runtimeOnly("com.mysql:mysql-connector-j")
-    runtimeOnly("com.h2database:h2")
+    runtimeOnly("com.microsoft.sqlserver:mssql-jdbc")
+//    runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
     // dependencies for using Spock
