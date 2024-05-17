@@ -15,4 +15,6 @@ class Product(
     var description: String? = null
 ) : AuditableEntity()
 
-interface ProductRepository : JpaRepository<Product?, Long?>
+interface ProductRepository : JpaRepository<Product?, Long?> {
+    fun findByDescriptionContaining(description: String): List<Product>
+}
