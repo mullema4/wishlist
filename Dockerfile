@@ -14,8 +14,11 @@ RUN addgroup --system --gid 1000 appgroup \
 # Tell docker that all future commands should run as the appuser user
 USER 1000
 
-# Make port 8080 available to the world outside this container
-EXPOSE 8080
+# Allow remote JVM debugging
+ENV JAVA_TOOL_OPTIONS -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+
+# Make ports 8080 and 5005 available to the world outside this container
+EXPOSE 8080 5005
 
 # Run the jar file
 ENTRYPOINT ["java", "-Xms512m", "-Xmx512m", "-jar", "/wishlist.jar"]
