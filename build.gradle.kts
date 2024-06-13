@@ -8,6 +8,7 @@ plugins {
     kotlin("jvm") version kotlinPluginVersion
     kotlin("plugin.jpa") version kotlinPluginVersion
     kotlin("plugin.spring") version kotlinPluginVersion
+    id("com.gorylenko.gradle-git-properties") version "2.4.1"
     groovy
 }
 
@@ -34,7 +35,9 @@ dependencies {
     implementation("com.maciejwalkowiak.spring:spring-boot-startup-report:0.2.0")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 //    runtimeOnly("com.mysql:mysql-connector-j")
+//    runtimeOnly("com.microsoft.sqlserver:mssql-jdbc")
     runtimeOnly("com.h2database:h2")
+    runtimeOnly("net.bull.javamelody:javamelody-spring-boot-starter:2.2.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
     // dependencies for using Spock
