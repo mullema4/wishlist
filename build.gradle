@@ -1,10 +1,12 @@
 plugins {
-    id 'org.springframework.boot' version '3.0.5'
-    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version '3.3.4'
+    id 'io.spring.dependency-management' version '1.1.6'
     id 'java'
+    id 'com.gorylenko.gradle-git-properties' version '2.4.2'
 }
 
 group = 'dk.cngroup.wishlist'
+version = '1.1.0'
 
 repositories {
     mavenCentral()
@@ -23,13 +25,16 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springdoc:springdoc-openapi:2.1.0'
-    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+    implementation 'org.springdoc:springdoc-openapi:2.6.0'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
     implementation 'com.google.code.gson:gson'
+    implementation 'com.maciejwalkowiak.spring:spring-boot-startup-report:0.2.0'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-//    runtimeOnly 'mysql:mysql-connector-java'
+//    runtimeOnly 'com.mysql:mysql-connector-j'
+//    runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
     runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'net.bull.javamelody:javamelody-spring-boot-starter:2.2.0'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
