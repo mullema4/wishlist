@@ -15,14 +15,18 @@ public class RestExceptionHandler {
 
     @ExceptionHandler(EmptyResultDataAccessException.class)
     @ResponseStatus(NOT_FOUND)
-    public String handleNotFoundException(Exception e) {
-        return e.getMessage();
+    public String handleNotFoundException(Exception exception) {
+        return getExceptionTypeAndMessage(exception);
     }
 
     @ExceptionHandler(Throwable.class)
     @ResponseStatus(INTERNAL_SERVER_ERROR)
-    public String handleAnyException(final Throwable t) {
-        log.error("Internal server error", t);
-        return t.getMessage();
+    public String handleAnyException(Throwable throwable) {
+        log.error("Internal server error", throwable);
+        return getExceptionTypeAndMessage(throwable);
+    }
+
+    private String getExceptionTypeAndMessage(Throwable throwable) {
+        return throwable.getClass().getSimpleName() + ": " + throwable.getMessage();
     }
 }
