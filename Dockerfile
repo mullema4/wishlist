@@ -1,5 +1,5 @@
-# Small & secure JRE 17 base image
-FROM eclipse-temurin:17-jre-alpine
+# Small & secure JRE 24 base image
+FROM eclipse-temurin:24-jre-alpine
 
 # Install security updates
 RUN apk -U upgrade
