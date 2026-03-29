@@ -1,9 +1,9 @@
 package dk.cngroup.wishlist.entity
 
 import com.fasterxml.jackson.annotation.JsonBackReference
+import jakarta.persistence.*
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.rest.core.annotation.Description
-import jakarta.persistence.*
 
 @Entity
 class Wishlist(
@@ -16,6 +16,6 @@ class Wishlist(
     @ManyToMany(cascade = [CascadeType.PERSIST])
     @Description("A list of items added by the client")
     var products: MutableList<Product> = arrayListOf()
-): AuditableEntity()
+) : AuditableEntity()
 
-interface WishlistRepository : JpaRepository<Wishlist?, Long?>
+interface WishlistRepository : JpaRepository<Wishlist, Long>

@@ -1,7 +1,7 @@
 plugins {
-    val kotlinPluginVersion = "2.3.0-RC"
+    val kotlinPluginVersion = "2.3.20"
 
-    id("org.springframework.boot") version "3.5.7"
+    id("org.springframework.boot") version "4.0.5"
     id("io.spring.dependency-management") version "1.1.7"
     kotlin("jvm") version kotlinPluginVersion
     kotlin("plugin.jpa") version kotlinPluginVersion
@@ -11,34 +11,34 @@ plugins {
 }
 
 group = "dk.cngroup.wishlist"
-version = "1.2.0"
+version = "1.3.0"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-reflect:2.2.20")
-    implementation("io.github.oshai:kotlin-logging-jvm:7.0.13")
+    implementation(kotlin("reflect"))
+    implementation("io.github.oshai:kotlin-logging-jvm:7.0.14")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-data-rest")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.14")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.2")
     implementation("com.google.code.gson:gson")
-    implementation("com.maciejwalkowiak.spring:spring-boot-startup-report:0.2.0")
+    implementation("net.bull.javamelody:javamelody-spring-boot4-starter:2.6.0")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 //    runtimeOnly("com.mysql:mysql-connector-j")
 //    runtimeOnly("com.microsoft.sqlserver:mssql-jdbc")
     runtimeOnly("com.h2database:h2")
-    runtimeOnly("net.bull.javamelody:javamelody-spring-boot-starter:2.5.1")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
 
     // dependencies for using Spock
-    testImplementation("org.spockframework:spock-spring:2.4-M6-groovy-4.0")
+    testImplementation("org.spockframework:spock-spring:2.4-groovy-5.0")
     testImplementation("org.hamcrest:hamcrest-core")   // only necessary if Hamcrest matchers are used
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testRuntimeOnly("net.bytebuddy:byte-buddy") // allows mocking of classes (in addition to interfaces)
 }
 

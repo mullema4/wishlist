@@ -5,8 +5,8 @@ import dk.cngroup.wishlist.entity.ClientRepository
 import dk.cngroup.wishlist.entity.Product
 import dk.cngroup.wishlist.entity.Wishlist
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.transaction.annotation.Transactional
 import spock.lang.Specification

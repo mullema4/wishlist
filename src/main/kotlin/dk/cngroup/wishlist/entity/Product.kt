@@ -1,9 +1,9 @@
 package dk.cngroup.wishlist.entity
 
-import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.rest.core.annotation.Description
 import jakarta.persistence.Entity
 import jakarta.validation.constraints.NotNull
+import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.rest.core.annotation.Description
 
 @Entity
 class Product(
@@ -12,4 +12,4 @@ class Product(
     var code: String
 ) : AuditableEntity()
 
-interface ProductRepository : JpaRepository<Product?, Long?>
+interface ProductRepository : JpaRepository<Product, Long>
