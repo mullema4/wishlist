@@ -9,7 +9,6 @@ import org.hibernate.annotations.Formula
 import org.hibernate.annotations.SQLRestriction
 import org.springframework.data.jpa.repository.EntityGraph
 import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.rest.core.annotation.RestResource
 
 @Entity
 @SQLRestriction("active = true") // all SELECT statements will be enhanced by where condition; cannot be inherited
@@ -32,10 +31,8 @@ class Client(
 }
 
 interface ClientRepository : JpaRepository<Client, Long> {
-    @RestResource(exported = false)
     fun getByUserName(userName: String): Client?
 
-    @RestResource(exported = false)
     @EntityGraph(attributePaths = ["wishes"])
     fun findByUserName(userName: String): Client?
 

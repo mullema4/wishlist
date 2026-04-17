@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "dk.cngroup.wishlist"
-version = "1.3.0"
+version = "2.0.0"
 
 repositories {
     mavenCentral()
@@ -21,13 +21,13 @@ dependencies {
     implementation(kotlin("reflect"))
     implementation("io.github.oshai:kotlin-logging-jvm:7.0.14")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-data-rest")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.2")
     implementation("com.google.code.gson:gson")
+    implementation("org.openapitools:jackson-databind-nullable:0.2.10")
     implementation("net.bull.javamelody:javamelody-spring-boot4-starter:2.6.0")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 //    runtimeOnly("com.mysql:mysql-connector-j")
