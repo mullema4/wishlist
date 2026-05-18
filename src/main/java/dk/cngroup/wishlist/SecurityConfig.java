@@ -8,6 +8,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -19,10 +21,14 @@ import static org.springframework.security.config.Customizer.withDefaults;
 public class SecurityConfig implements AuditorAware<String> {
 
     @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user = User.withDefaultPasswordEncoder()
-                .username("user")
-                .password("password")
+    public PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
+
+    @Bean
+    public InMemoryUserDetailsManager userDetailsService(PasswordEncoder passwordEncoder) {
+        UserDetails user = User.withUsername("user")
+                .password(passwordEncoder.encode("password"))
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(user);
@@ -34,7 +40,7 @@ public class SecurityConfig implements AuditorAware<String> {
                 .csrf(csrf -> csrf.disable())
                 .httpBasic(withDefaults())
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/actuator/health/*").permitAll()
+                        .requestMatchers("/actuator/health/**").permitAll()
                         .anyRequest().authenticated()
                 );
         return httpSecurity.build();

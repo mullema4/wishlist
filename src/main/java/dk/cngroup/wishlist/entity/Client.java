@@ -5,14 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Formula;
-import org.hibernate.annotations.Where;
+import org.hibernate.annotations.SQLRestriction;
 
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Where(clause = "active = true") // all SELECT statements will be enhanced by given where condition; cannot be inherited from parent class
+@SQLRestriction("active = true") // all SELECT statements will be enhanced by where condition; cannot be inherited
 
 @Getter
 @Setter
