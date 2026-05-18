@@ -2,27 +2,27 @@ package dk.cngroup.wishlist.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.rest.core.annotation.Description;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Wishlist extends AuditableEntity {
     @JsonBackReference
-    @Description("The user holding items in this wishlist")
     @ManyToOne
-    Client client;
+    private Client client;
 
-    @Description("A list of items added by the client")
     @ManyToMany(cascade = CascadeType.PERSIST)
     @OrderColumn
-    List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
     public Wishlist(List<Product> products) {
         this.products = products;

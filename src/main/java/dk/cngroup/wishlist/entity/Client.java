@@ -18,11 +18,11 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class Client extends AuditableEntity {
+    private Boolean active = true;
+
     private String firstName;
 
     private String lastName;
-
-    private Boolean active;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
@@ -32,10 +32,19 @@ public class Client extends AuditableEntity {
     @Formula("upper(concat(first_name, '_', last_name))")
     private String userName;
 
-    public Client(String firstName, String lastName) {
+    public Client(Boolean active, String firstName, String lastName) {
+        this.active = active;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.active = true;
+    }
+
+    public Client(Boolean active, String firstName, String lastName, List<Wishlist> wishes) {
+        this(active, firstName, lastName);
+        this.wishes = wishes;
+    }
+
+    public Client(String firstName, String lastName) {
+        this(true, firstName, lastName);
     }
 
     public void addWishlist(Wishlist wishlist) {
